@@ -1,0 +1,84 @@
+body{
+    background-image: url(./Images/Quotes\ Wallpaper.jpg);
+    background-repeat: no-repeat;
+    background-size: 650px 400px;
+    background-position: 300px 200px;
+    background-color: rgb(32, 31, 31);
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    margin: 50px auto;
+ 
+}
+input{
+width: 180px;
+padding: 10px;
+border: 1px groove gray;
+border-radius:5px;
+outline: 6px outset red; 
+padding: 15px;
+font-size: 1rem;
+animation: mymove 20s linear infinite reverse ;  
+}
+@keyframes mymove {
+0% { outline-color: red; }
+25% { outline-color: rgb(168, 147, 15); }
+50% { outline-color: rgba(145, 59, 166, 0.842); }
+75% { outline-color: rgb(44, 206, 46); }
+100% { outline-color: green; }
+}
+#addbtn{
+width: 150px;
+padding: 15px;
+border: none;
+border-radius: 5px;
+background-color: rgb(209, 150, 22);
+color: white;
+font-size: 1em;
+animation: buttonmove 12s ease-in infinite  reverse ;
+}
+@keyframes buttonmove{
+0%{background-color: rgb(146, 146, 30);}
+20%{background-color: blueviolet;}
+40%{background-color: rgb(67, 204, 99);}
+60%{background-color: rgb(217, 97, 139);}
+80%{background-color: rgb(135, 85, 5);}
+100%{background-color: blueviolet;}
+}
+#addbtn:hover{
+box-shadow: 3px 6px 8px gray;
+}
+#removebtn{
+padding: 10px;
+width: 150px;
+display: inline-block;
+}
+ul li {
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+list-style-type: none;
+background-color: whitesmoke;
+padding: 10px;
+text-align: center;
+margin: 0,5px;
+border-radius: 1px;
+}
+#removebtn {
+padding: 10px;
+width: 90px;
+background-color: red;
+color: white;
+border: none;
+border-radius: 3px;
+cursor: pointer;
+margin-left: 10px;
+}
+
+#removebtn:hover {
+background-color: darkred;
+}
