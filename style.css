@@ -1,84 +1,173 @@
-body{
-    background-image: url(./Images/Quotes\ Wallpaper.jpg);
-    background-repeat: no-repeat;
-    background-size: 650px 400px;
-    background-position: 300px 200px;
-    background-color: rgb(32, 31, 31);
-}
-.container{
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    justify-content: center;
-    align-items: center;
-    margin: 50px auto;
- 
-}
-input{
-width: 180px;
-padding: 10px;
-border: 1px groove gray;
-border-radius:5px;
-outline: 6px outset red; 
-padding: 15px;
-font-size: 1rem;
-animation: mymove 20s linear infinite reverse ;  
-}
-@keyframes mymove {
-0% { outline-color: red; }
-25% { outline-color: rgb(168, 147, 15); }
-50% { outline-color: rgba(145, 59, 166, 0.842); }
-75% { outline-color: rgb(44, 206, 46); }
-100% { outline-color: green; }
-}
-#addbtn{
-width: 150px;
-padding: 15px;
-border: none;
-border-radius: 5px;
-background-color: rgb(209, 150, 22);
-color: white;
-font-size: 1em;
-animation: buttonmove 12s ease-in infinite  reverse ;
-}
-@keyframes buttonmove{
-0%{background-color: rgb(146, 146, 30);}
-20%{background-color: blueviolet;}
-40%{background-color: rgb(67, 204, 99);}
-60%{background-color: rgb(217, 97, 139);}
-80%{background-color: rgb(135, 85, 5);}
-100%{background-color: blueviolet;}
-}
-#addbtn:hover{
-box-shadow: 3px 6px 8px gray;
-}
-#removebtn{
-padding: 10px;
-width: 150px;
-display: inline-block;
-}
-ul li {
-display: flex;
-flex-direction: row;
-justify-content: space-between;
-list-style-type: none;
-background-color: whitesmoke;
-padding: 10px;
-text-align: center;
-margin: 0,5px;
-border-radius: 1px;
-}
-#removebtn {
-padding: 10px;
-width: 90px;
-background-color: red;
-color: white;
-border: none;
-border-radius: 3px;
-cursor: pointer;
-margin-left: 10px;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
 }
 
-#removebtn:hover {
-background-color: darkred;
+body {
+    background: #0f0c29; 
+    background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.app-wrapper {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    width: 400px;
+    padding: 30px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+}
+
+header h1 {
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+    background: linear-gradient(to right, #00dbde, #fc00ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#date-display {
+    font-size: 0.8rem;
+    color: #aaa;
+    margin-bottom: 20px;
+}
+
+.input-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+input {
+    flex: 1;
+    padding: 12px 15px;
+    border-radius: 10px;
+    border: none;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    outline: none;
+    transition: 0.3s;
+}
+
+input:focus {
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 10px rgba(0, 219, 222, 0.3);
+}
+
+#addbtn {
+    padding: 12px 18px;
+    border-radius: 10px;
+    border: none;
+    background: linear-gradient(45deg, #00dbde, #fc00ff);
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#addbtn:hover {
+    transform: scale(1.05);
+    filter: brightness(1.2);
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    background: rgba(255, 255, 255, 0.08);
+    margin-bottom: 10px;
+    padding: 12px 15px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: fadeIn 0.4s ease;
+    transition: 0.3s;
+}
+
+li:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.task-text {
+    flex: 1;
+    cursor: pointer;
+}
+
+.completed {
+    text-decoration: line-through;
+    opacity: 0.5;
+}
+
+.delete-btn {
+    color: #ff4d4d;
+    cursor: pointer;
+    font-size: 1.1rem;
+    margin-left: 10px;
+    transition: 0.2s;
+}
+
+.delete-btn:hover {
+    transform: scale(1.2);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+/* Filter Buttons Styling */
+.filters {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.filter-btn {
+    background: transparent;
+    border: none;
+    color: #888;
+    cursor: pointer;
+    font-size: 0.9rem;
+    padding: 5px 10px;
+    transition: 0.3s;
+}
+
+.filter-btn.active {
+    color: #00dbde;
+    font-weight: bold;
+    border-bottom: 2px solid #00dbde;
+}
+
+.footer-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    font-size: 0.8rem;
+    color: #777;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 15px;
+}
+
+#clear-btn {
+    background: transparent;
+    border: none;
+    color: #ff4d4d;
+    cursor: pointer;
+}
+
+/* Status Colors */
+li.completed-item {
+    border-left: 4px solid #2ecc40;
+}
+li.active-item {
+    border-left: 4px solid #00dbde;
 }
